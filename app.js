@@ -93,7 +93,48 @@ const linkedList = () => {
 
             previous.nextNode = null;
         },
-        
+
+        contains(value) {
+            let current = this.head;
+
+            while (current) {
+                if (current.value === value) {
+                    return true;
+                }
+                current = current.nextNode;
+            }
+
+            return false;
+        },
+
+        find(value) {
+            let current = this.head;
+            let index = 0;
+
+            while (current) {
+                if (current.value === value) {
+                    return index;
+                }
+                current = current.nextNode;
+                index++;
+            }
+
+            return null;
+        },
+
+        toString() {
+            let result = "";
+            let current = this.head;
+
+            while (current) {
+                result += `( ${current.value} ) -> `;
+                current = current.nextNode;
+            }
+
+            result += "null"
+            return result;
+        },
+
 
 
     }
