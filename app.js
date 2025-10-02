@@ -135,10 +135,39 @@ const linkedList = () => {
             return result;
         },
 
+        insertAt(value, index) {
+            if (index < 0) return;
 
+            if (index === 0) {
+                this.prepend(value);
+                return;
+            }
 
-    }
-}
+            const newNode = node(value);
+            const previous = this.at(index - 1);
+
+            if (!previous) return;
+
+            newNode.nextNode = previous.nextNode;
+            previous.nextNode = newNode;
+        },
+
+        removeAt(index) {
+            if (index < 0 || !this.head) return;
+
+            if (index === 0) {
+                this.head = this.head.nextNode;
+                return;
+            }
+
+            const previous = this.at(index - 1);
+
+            if (!previous || !previous.nextNode) return;
+
+            previous.nextNode = previous.nextNode.nextNode;
+        }
+    };
+};
 
 
 export {
