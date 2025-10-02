@@ -35,7 +35,7 @@ const linkedList = () => {
         },
 
         size() {
-            let count =0;
+            let count = 0;
             let current = this.head;
 
             while (current) {
@@ -46,7 +46,7 @@ const linkedList = () => {
             return count;
         },
 
-        head() {
+        getHead() {
             return this.head;
         },
 
